@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# sodiq.dev — portfolio
 
-## Getting Started
+Single-page portfolio for Sodiq Abdulganiy, frontend engineer. "Daylight Terminal" design: a light instrument-panel counterpart to ProLive's dark trading UI.
 
-First, run the development server:
+Next.js 15 (App Router) · TypeScript · Tailwind CSS v4 · IBM Plex via `next/font`. No component libraries.
+
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Before deploying
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All copy, links, and asset paths live in [`lib/content.ts`](lib/content.ts):
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Fill the `// TODO` demo and repo URLs (ProLive, UniEvent, Finance Dashboard).
+2. Replace the placeholder screenshots in `public/` (`prolive.svg`, `unievent.svg`, `finance.svg`) with real captures (1280×800) and update the `screenshot` paths.
+3. Update `site.url` once the domain is live.
 
-## Learn More
+Deploy target: Vercel.
 
-To learn more about Next.js, take a look at the following resources:
+## Design notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Five color tokens per theme, defined in [`app/globals.css`](app/globals.css). Light `signal` is `#0B7A4F` — darkened from the spec's `#0B8F5C` so small green text on the panel passes WCAG AA (4.96:1). Dark theme brightens `signal`/`graphite` to keep AA on `#0F1418`.
+- Theme follows the system preference on first visit; the ticker's toggle stores an explicit choice in `localStorage` that overrides it. An inline script in `app/layout.tsx` applies the theme before first paint.
+- Motion budget is exactly three: ticker marquee, hero fade-up (once, on load), and hover states. All respect `prefers-reduced-motion`.
+- The ticker fetches the last-commit time from the public GitHub API client-side and falls back to `LAST COMMIT — SEE GITHUB` on failure.
+# portfolio
