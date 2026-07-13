@@ -155,7 +155,7 @@ export const projects: Project[] = [
 ];
 
 export const approach = [
-  "I've spent the last three years building interfaces for fintech products — screens where a stale price or a misplaced decimal isn't a cosmetic bug, it's money. That environment taught me to treat the frontend as an instrument: state is explicit, edge cases are handled on purpose, and what the user sees is always something the system can defend.",
+  "I've spent the last three years building interfaces for products people rely on — screens where a broken state or a dropped update isn't a cosmetic bug, it's a user who stops trusting the product. That taught me to treat the frontend as an instrument: state is explicit, edge cases are handled on purpose, and what the user sees is always something the system can defend.",
   "I work typed and tested. TypeScript end to end, components small enough to reason about, and performance treated as a feature — measured with real tooling, not guessed at. If a screen re-renders too often or ships too much JavaScript, that's a bug and it gets fixed like one.",
-  "I'm looking for a frontend role on a product team that ships. If you're building something where the interface has to earn trust, I'd like to hear about it.",
+  "I'm looking for a frontend role on a product team that ships. If you're building something where the interface has to earn its trust, I'd like to hear about it.",
 ];

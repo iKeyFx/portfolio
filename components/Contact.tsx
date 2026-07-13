@@ -16,11 +16,11 @@ export default function Contact() {
         >
           Contact
         </h2>
-        <p className="mt-8 flex flex-wrap items-baseline gap-x-3 gap-y-2 font-mono text-[13px]">
+        <ul className="mt-8 flex flex-col gap-y-3 font-mono text-[13px] sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-3 sm:gap-y-2">
           {links.map((link, index) => (
-            <span key={link.href} className="flex items-baseline gap-x-3">
+            <li key={link.href} className="flex items-baseline gap-x-3">
               {index > 0 && (
-                <span className="text-graphite" aria-hidden>
+                <span className="hidden text-graphite sm:inline" aria-hidden>
                   ·
                 </span>
               )}
@@ -32,9 +32,9 @@ export default function Contact() {
               >
                 {link.label}
               </a>
-            </span>
+            </li>
           ))}
-        </p>
+        </ul>
       </div>
     </footer>
   );
